@@ -1,4 +1,4 @@
-import HeaderImg from "../assets/quiz-logo.png";
+import HeaderImg from "../assets/react-logo.png";
 
 export default function Header() {
   return (

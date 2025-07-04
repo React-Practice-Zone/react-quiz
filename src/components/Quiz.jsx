@@ -4,7 +4,7 @@ import QuizCompleteImg from "../assets/quiz-complete.png";
 import QUESTIONS from "../interview-questions";
 import QuestionTimer from "./QuestionTimer";
 
-const QUESTION_TIMER = 10_000;
+const QUESTION_TIMER = 30_000;
 
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
