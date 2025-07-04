@@ -4,7 +4,7 @@ import QuizCompleteImg from "../assets/quiz-complete.png";
 import QUESTIONS from "../interview-questions";
 import QuestionTimer from "./QuestionTimer";
 
-const QUESTION_TIMER = 15_000;
+const QUESTION_TIMER = 10_000;
 
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
@@ -36,7 +36,11 @@ export default function Quiz() {
   ) : (
     <div id="quiz">
       <div id="question">
-        <QuestionTimer timeout={QUESTION_TIMER} onTimeout={handleSkipAnswer} />
+        <QuestionTimer
+          key={activeQuestionIndex}
+          timeout={QUESTION_TIMER}
+          onTimeout={handleSkipAnswer}
+        />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
         <ul id="answers">
           {shuffledAnswers.map((answer) => (
