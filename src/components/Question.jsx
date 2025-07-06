@@ -15,6 +15,9 @@ export default function Question({
     isCorrect: null,
   });
 
+  let answerState = "";
+  let timer = 30_000;
+
   function handleSelectAnswer(selectedAnswer) {
     setAnswer({
       selectedAnswer,
@@ -33,17 +36,22 @@ export default function Question({
     }, 500);
   }
 
-  let answerState = "";
-
   if (answer.selectedAnswer && answer.isCorrect !== null) {
     answerState = answer.isCorrect ? "correct" : "wrong";
   } else if (answer.selectedAnswer) {
     answerState = "answered";
   }
 
+  answer.selectedAnswer ? (timer = 1000) : (timer = 2000);
+
   return (
     <div id="question">
-      <QuestionTimer timeout={questionTimer} onTimeout={onSkipAnswer} />
+      <QuestionTimer
+        // key={timer}
+        timeout={questionTimer}
+        onTimeout={answer.selectedAnswer === "" ? onSkipAnswer : null}
+        mode={answerState}
+      />
       <h2>{QUESTIONS[index].text}</h2>
       <Answers
         answers={QUESTIONS[index].answers}
