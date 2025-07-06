@@ -49,7 +49,7 @@ export default function Question({
         answers={QUESTIONS[index].answers}
         selectedAnswer={answer.selectedAnswer}
         answerState={answerState}
-        onSelectAnswer={onSelectAnswer}
+        onSelectAnswer={handleSelectAnswer}
       />
     </div>
   );
