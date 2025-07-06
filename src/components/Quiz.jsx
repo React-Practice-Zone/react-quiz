@@ -1,8 +1,8 @@
 import { useState, useCallback, useRef } from "react";
 
-import QuizCompleteImg from "../assets/quiz-complete.png";
 import QUESTIONS from "../interview-questions";
 import Question from "./Question";
+import Summary from "./Summary";
 
 const QUESTION_TIMER = 30_000;
 
@@ -22,10 +22,7 @@ export default function Quiz() {
   }, []);
 
   return quizIsComplete ? (
-    <div id="summary">
-      <img src={QuizCompleteImg} alt="Trophy icon" />
-      <h2>Quiz Completed!</h2>
-    </div>
+    <Summary userAnswers={userAnswers} />
   ) : (
     <div id="quiz">
       <Question
